@@ -1,6 +1,6 @@
 <?php
 
-namespace Bottles\TextGenerator\DE;
+namespace Bottles\TextGenerator\ES;
 
 use Bottles\BottleTextInterface;
 use Bottles\TextGenerator\PhraseTrait;
@@ -9,9 +9,9 @@ class BottleText implements BottleTextInterface
 {
     use PhraseTrait;
 
-    private string $singularBottle = 'Flasche';
-    private string $pluralBottle = 'Flaschen';
-    private string $noBottle = 'keine Flaschen mehr';
+    private string $singularBottle = 'botella';
+    private string $pluralBottle = 'botellas';
+    private string $noBottle = 'no quedan más botellas';
 
     public function getPhrase(int $number): string
     {
@@ -22,21 +22,21 @@ class BottleText implements BottleTextInterface
 
     public function getLastPhrase(): string
     {
-        return "Keine Flaschen Bier mehr auf dem Tisch, keine Flaschen Bier mehr." . PHP_EOL
-            . "Geh zum Laden und kauf wieder ein, 99 Flaschen Bier auf dem Tisch." . PHP_EOL;
+        return "No quedan más botellas de cerveza en la pared, no quedan más botellas de cerveza." . PHP_EOL
+            . "Ve a la tienda y compra algunas más, 99 botellas de cerveza en la pared." . PHP_EOL;
     }
 
     private function getFirstPhrase(int $number): string
     {
         return $this->getDynamicLastBottlesWord($number) . ' '
-            . $this->getDynamicBottlesWord($number) . ' Bier auf dem Tisch, '
+            . $this->getDynamicBottlesWord($number) . ' de cerveza en la pared, '
             . $this->getDynamicLastBottlesWord($number) . ' '
-            . $this->getDynamicBottlesWord($number) . ' Bier. ';
+            . $this->getDynamicBottlesWord($number) . ' de cerveza. ';
     }
 
     private function getSecondPhrase(int $number): string
     {
-        return 'Nimm eine herunter und gib sie herum, ' . $this->getDynamicLastBottlesWord($number - 1) . ' Bier auf dem Tisch';
+        return 'Toma una, pásala alrededor, ' . $this->getDynamicLastBottlesWord($number - 1) . ' de cerveza en la pared';
     }
 
     public function getDynamicBottlesWord(int $number): string

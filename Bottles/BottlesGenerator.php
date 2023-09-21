@@ -3,6 +3,7 @@
 namespace Bottles;
 
 use Bottles\Services\BottleTextService;
+use Throwable;
 
 class BottlesGenerator
 {
@@ -11,8 +12,13 @@ class BottlesGenerator
 
     public function __construct(private readonly string $lang)
     {
-        $bottleTextService = new BottleTextService($this->lang);
-        $this->bottleText = $bottleTextService->getTextGenerator();
+        try {
+            $bottleTextService = new BottleTextService($this->lang);
+            $this->bottleText = $bottleTextService->getTextGenerator();
+        } catch (Throwable $e) {
+            echo "Language: " . $this->lang . ' does not exist in this project. If you want, you can create one yourself.';
+            exit(1);
+        }
     }
 
     public function generate(): void
