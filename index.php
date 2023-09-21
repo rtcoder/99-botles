@@ -1,3 +1,3 @@
 <?php
 require_once 'vendor/autoload.php';
-(new Bottles\BottlesGenerator('pl'))->generate();
+(new Bottles\BottlesGenerator('de'))->generate();
