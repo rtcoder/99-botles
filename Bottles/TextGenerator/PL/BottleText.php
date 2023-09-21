@@ -21,7 +21,13 @@ class BottleText implements BottleTextInterface
 
         return $firstPhrase . ', ' . $firstPhrase . '. '
             . $this->getSecondPhrase($number)
-            . $this->getEndingCharacterOfPhrase($number);
+            . PHP_EOL;
+    }
+
+    public function getLastPhrase(): string
+    {
+        return "Już nie ma butelek piwa na ścianie, już nie ma butelek piwa." . PHP_EOL
+            . "Idź do sklepu i kup jeszcze, 99 butelek piwa na ścianie." . PHP_EOL;
     }
 
     private function getFirstPhrase(int $number): string

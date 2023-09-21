@@ -20,7 +20,13 @@ class BottleText implements BottleTextInterface
 
         return $firstPhrase . ', ' . $firstPhrase . '. '
             . $this->getSecondPhrase($number)
-            . $this->getEndingCharacterOfPhrase($number);
+            . PHP_EOL;
+    }
+
+    public function getLastPhrase(): string
+    {
+        return "No more bottles of beer on the wall, no more bottles of beer." . PHP_EOL
+            . "Go to the store and buy some more, 99 bottles of beer on the wall." . PHP_EOL;
     }
 
     private function getFirstPhrase(int $number): string
@@ -31,7 +37,7 @@ class BottleText implements BottleTextInterface
 
     private function getSecondPhrase(int $number): string
     {
-        return 'Take one down and pass it around - ' . $this->getFirstPhrase($number-1);
+        return 'Take one down and pass it around - ' . $this->getFirstPhrase($number - 1);
     }
 
     public function getDynamicBottlesWord(int $number): string

@@ -20,5 +20,6 @@ class BottlesGenerator
         for ($i = $this->bottlesNumber; $i > 0; $i--) {
             echo $this->bottleText->getPhrase($i);
         }
+        echo $this->bottleText->getLastPhrase();
     }
 }
